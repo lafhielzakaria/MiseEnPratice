@@ -8,5 +8,8 @@ import { notImplemented } from '../shared/http-error.js';
 export const equipmentRouter = Router();
 // MES 1 - TODO A : brancher les fonctions deja importees dans le bon ordre.
 equipmentRouter.post('/', (req, res, next) => {
-  next(notImplemented('MES 1 / route a brancher'));
+  asyncHandler(authenticate),
+    requireRole('admin'),
+    validateCreateEquipment,
+    asyncHandler(create)
 });

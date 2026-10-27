@@ -2,5 +2,6 @@ import { createEquipment } from '../services/equipment.service.js';
 import { notImplemented } from '../shared/http-error.js';
 export async function create(req, res) {
   // MES 1 - TODO B 
-  throw notImplemented('MES 1 / controleur a completer');
+  const equipment = await createEquipment(req.validatedBody);
+  res.status(201).json({ data: equipment });
 }
